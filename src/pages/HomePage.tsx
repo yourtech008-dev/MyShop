@@ -14,8 +14,12 @@ export default function HomePage() {
 
   useEffect(() => {
     fetch('/api/products')
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then((data) => {
+        console.log('Fetched products:', data);
         setProducts(data);
         setLoading(false);
       })
@@ -46,6 +50,16 @@ export default function HomePage() {
             
             {loading ? (
               <div className="text-center py-20">Loading products...</div>
+            ) : products.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-gray-500 text-lg">No products found.</p>
+                <button 
+                  onClick={() => window.location.reload()} 
+                  className="mt-4 text-primary hover:underline"
+                >
+                  Refresh Page
+                </button>
+              </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {products.map((product) => (

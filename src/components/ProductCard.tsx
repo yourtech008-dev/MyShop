@@ -12,8 +12,8 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className="bg-white rounded-2xl group hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden relative"
     >
       {/* Image Container */}
