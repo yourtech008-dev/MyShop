@@ -128,6 +128,23 @@ async function startServer() {
   });
 
 
+  // Dashboard Stats
+  app.get('/api/admin/stats', (req, res) => {
+    const totalOrders = db.prepare('SELECT COUNT(*) as count FROM orders').get() as { count: number };
+    const totalSales = db.prepare('SELECT SUM(total_amount) as total FROM orders WHERE status != "cancelled"').get() as { total: number };
+    const totalProducts = db.prepare('SELECT COUNT(*) as count FROM products').get() as { count: number };
+    const lowStock = db.prepare('SELECT COUNT(*) as count FROM products WHERE stock < 10').get() as { count: number };
+    const recentOrders = db.prepare('SELECT * FROM orders ORDER BY created_at DESC LIMIT 5').all();
+
+    res.json({
+      totalOrders: totalOrders.count,
+      totalSales: totalSales.total || 0,
+      totalProducts: totalProducts.count,
+      lowStock: lowStock.count,
+      recentOrders: recentOrders.map((o: any) => ({ ...o, items: JSON.parse(o.items) }))
+    });
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
