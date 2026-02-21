@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import TrackingPage from './pages/TrackingPage';
+import ContactPage from './pages/ContactPage';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/track" element={<TrackingPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         
         <Route path="/seller-dashboard" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
