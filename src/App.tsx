@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/track" element={<TrackingPage />} />
         
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/seller-dashboard" element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />

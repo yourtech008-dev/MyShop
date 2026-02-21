@@ -8,9 +8,9 @@ export default function AdminLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   
   const navItems = [
-    { path: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
-    { path: '/admin/products', icon: Package, label: 'Products' },
-    { path: '/admin/orders', icon: ShoppingBag, label: 'Orders' },
+    { path: '/seller-dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { path: '/seller-dashboard/products', icon: Package, label: 'Products' },
+    { path: '/seller-dashboard/orders', icon: ShoppingBag, label: 'Orders' },
   ];
 
   return (

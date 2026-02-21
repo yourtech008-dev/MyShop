@@ -14,7 +14,7 @@ export function Header() {
         <p>Delivery Available within 100 KM – Vadodara</p>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1"><Phone size={14} /> +91-9876543210</span>
-          <Link to="/admin" className="hover:underline">Admin Panel</Link>
+          <Link to="/seller-dashboard" className="hover:underline">Seller Panel</Link>
         </div>
       </div>
 
