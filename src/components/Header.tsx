@@ -56,6 +56,18 @@ export function Header() {
         </div>
       </div>
 
+      {/* Navigation Bar */}
+      <div className="border-t border-gray-100 hidden md:block">
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center gap-8 py-3">
+            <Link to="/" className="text-gray-600 hover:text-secondary font-medium transition">Home</Link>
+            <Link to="/shop" className="text-gray-600 hover:text-secondary font-medium transition">Shop</Link>
+            <Link to="/track" className="text-gray-600 hover:text-secondary font-medium transition">Track Order</Link>
+            <Link to="/contact" className="text-gray-600 hover:text-secondary font-medium transition">Contact Us</Link>
+          </nav>
+        </div>
+      </div>
+
       {/* Mobile Search (Visible only on mobile) */}
       <div className="md:hidden px-4 pb-4">
         <div className="relative">

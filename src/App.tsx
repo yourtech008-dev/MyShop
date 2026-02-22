@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
 import CartPage from './pages/CartPage';
 import TrackingPage from './pages/TrackingPage';
 import ContactPage from './pages/ContactPage';
@@ -14,6 +15,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/track" element={<TrackingPage />} />
         <Route path="/contact" element={<ContactPage />} />
